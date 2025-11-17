@@ -5,6 +5,7 @@
   <title>Intwyne — Where intention meets connection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Google Font: Noto Serif -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -33,28 +34,29 @@
     .wrapper {
       text-align: center;
       max-width: 560px;
-      padding: 24px 24px 40px;
-      margin-top: 8px;
+      padding: 20px 24px 40px;
+      margin-top: 4px;
     }
 
     .logo {
-      max-width: 260px;
+      width: 70%;
+      max-width: 300px;
       height: auto;
-      margin: 0 auto 4px;   /* smaller gap under image */
       display: block;
+      margin: 0 auto 4px; /* tiny gap under logo */
     }
 
     .lead {
       font-size: 18px;
       line-height: 1.6;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       color: var(--green);
     }
 
     .body-text {
       font-size: 16px;
       line-height: 1.7;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: var(--green);
     }
 
@@ -68,7 +70,7 @@
     .sub {
       font-size: 14px;
       color: #7a6755;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     form {
@@ -88,7 +90,7 @@
       font-size: 14px;
       color: var(--brown);
       outline: none;
-      text-align: center;  /* centred text */
+      text-align: center; /* centre the text */
     }
 
     input[type="email"]::placeholder {
@@ -103,6 +105,7 @@
       background-color: var(--green);
       color: #fff;
       cursor: pointer;
+      min-width: 130px;
     }
 
     button:hover {
@@ -110,14 +113,36 @@
     }
 
     .footer {
-      margin-top: 24px;
+      margin-top: 22px;
       font-size: 12px;
       color: #8a7a6a;
     }
 
+    .success-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--green);
+      display: none;
+    }
+
+    .error-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #b1563b;
+      display: none;
+    }
+
     @media (max-width: 480px) {
       .wrapper {
-        padding: 20px 16px 32px;
+        padding: 18px 16px 32px;
+      }
+
+      form {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
       }
     }
   </style>
@@ -125,6 +150,7 @@
 
 <body>
   <div class="wrapper">
+    <!-- Make sure this filename matches the logo in your repo -->
     <img src="logo-intwyne_20251117_115659_0000.png" alt="Intwyne" class="logo" />
 
     <p class="lead">
@@ -142,14 +168,56 @@
       Join the waitlist to be the first to know.
     </p>
 
-    <form>
-      <input type="email" placeholder="Enter your email address" required />
+    <form id="waitlist-form" action="https://formspree.io/f/xdkyvgqj" method="POST">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email address"
+        required
+      />
       <button type="submit">Join the waitlist</button>
     </form>
+
+    <p id="success-message" class="success-message">
+      Thank you — you're on the waitlist. 🌿
+    </p>
+    <p id="error-message" class="error-message">
+      Something went wrong. Please try again in a moment.
+    </p>
 
     <div class="footer">
       hello@intwyne.co.uk
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById("waitlist-form");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          successMessage.style.display = "block";
+          form.reset();
+        } else {
+          errorMessage.style.display = "block";
+        }
+      } catch (err) {
+        errorMessage.style.display = "block";
+      }
+    });
+  </script>
 </body>
-</html> 
+</html>
