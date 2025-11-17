@@ -43,13 +43,21 @@
       max-width: 300px;
       height: auto;
       display: block;
-      margin: 0 auto 6px; /* very small gap under logo */
+      margin: 0 auto 6px; /* small gap under logo */
+    }
+
+    .coming {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--brown);
+      margin-top: 6px;
+      margin-bottom: 10px;
     }
 
     .lead {
       font-size: 16px;   /* slightly smaller */
       line-height: 1.55;
-      margin-top: 4px;
+      margin-top: 2px;
       margin-bottom: 8px;
       color: var(--green);
     }
@@ -59,13 +67,6 @@
       line-height: 1.6;
       margin-bottom: 16px;
       color: var(--green);
-    }
-
-    .coming {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--brown);
-      margin-bottom: 6px;
     }
 
     .sub {
@@ -79,7 +80,7 @@
       flex-direction: row;
       gap: 8px;
       justify-content: center;
-      flex-wrap: wrap; /* allows wrapping but not full-width */
+      flex-wrap: wrap; /* allows wrapping but keeps them compact */
     }
 
     input[type="email"] {
@@ -148,9 +149,15 @@
 <body>
   <div class="wrapper">
 
-    <!-- UPDATED LOGO FILENAME -->
+    <!-- Logo -->
     <img src="logo-intwyne_20251117_134318_0000.png" alt="Intwyne" class="logo" />
 
+    <!-- Coming soon directly under the logo -->
+    <p class="coming">
+      Something new is coming soon. 🌿
+    </p>
+
+    <!-- What Intwyne is -->
     <p class="lead">
       Intwyne is an intentional dating app for people who are ready for something real.
     </p>
@@ -159,14 +166,12 @@
       A calmer, more meaningful way to meet — with honest profiles, shared values, and genuine connection.
     </p>
 
-    <p class="coming">
-      Something new is coming soon. 🌿
-    </p>
-
+    <!-- Waitlist intro -->
     <p class="sub">
       Join the waitlist to be the first to know.
     </p>
 
+    <!-- Waitlist form -->
     <form id="waitlist-form" action="https://formspree.io/f/xdkyvgqj" method="POST">
       <input
         type="email"
@@ -178,6 +183,7 @@
       <button type="submit">Join the waitlist</button>
     </form>
 
+    <!-- Messages -->
     <p id="success-message" class="success-message">
       Thank you — you're on the waitlist. 🌿
     </p>
