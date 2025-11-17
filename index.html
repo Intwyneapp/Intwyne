@@ -43,20 +43,21 @@
       max-width: 300px;
       height: auto;
       display: block;
-      margin: 0 auto 4px; /* tiny gap under logo */
+      margin: 0 auto 6px; /* very small gap under logo */
     }
 
     .lead {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 10px;
+      font-size: 16px;   /* slightly smaller */
+      line-height: 1.55;
+      margin-top: 4px;
+      margin-bottom: 8px;
       color: var(--green);
     }
 
     .body-text {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 18px;
+      font-size: 15px;   /* slightly smaller */
+      line-height: 1.6;
+      margin-bottom: 16px;
       color: var(--green);
     }
 
@@ -70,7 +71,7 @@
     .sub {
       font-size: 14px;
       color: #7a6755;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     form {
@@ -78,7 +79,7 @@
       flex-direction: row;
       gap: 8px;
       justify-content: center;
-      flex-wrap: wrap;
+      flex-wrap: wrap; /* allows wrapping but not full-width */
     }
 
     input[type="email"] {
@@ -90,7 +91,7 @@
       font-size: 14px;
       color: var(--brown);
       outline: none;
-      text-align: center; /* centre the text */
+      text-align: center;
     }
 
     input[type="email"]::placeholder {
@@ -136,13 +137,9 @@
       .wrapper {
         padding: 18px 16px 32px;
       }
-
-      form {
-        flex-direction: column;
-      }
-
-      button {
-        width: 100%;
+      /* keep input + button compact on mobile */
+      input[type="email"], button {
+        width: auto;
       }
     }
   </style>
@@ -150,8 +147,9 @@
 
 <body>
   <div class="wrapper">
-    <!-- Make sure this filename matches the logo in your repo -->
-    <img src="logo-intwyne_20251117_115659_0000.png" alt="Intwyne" class="logo" />
+
+    <!-- UPDATED LOGO FILENAME -->
+    <img src="logo-intwyne_20251117_134318_0000.png" alt="Intwyne" class="logo" />
 
     <p class="lead">
       Intwyne is an intentional dating app for people who are ready for something real.
@@ -162,8 +160,9 @@
     </p>
 
     <p class="coming">
-      🌿 Something new is coming soon.
+      Something new is coming soon. 🌿
     </p>
+
     <p class="sub">
       Join the waitlist to be the first to know.
     </p>
@@ -182,6 +181,7 @@
     <p id="success-message" class="success-message">
       Thank you — you're on the waitlist. 🌿
     </p>
+
     <p id="error-message" class="error-message">
       Something went wrong. Please try again in a moment.
     </p>
@@ -189,6 +189,7 @@
     <div class="footer">
       hello@intwyne.co.uk
     </div>
+
   </div>
 
   <script>
@@ -219,5 +220,6 @@
       }
     });
   </script>
+
 </body>
-</html>
+</html> 
