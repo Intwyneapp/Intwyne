@@ -2,126 +2,230 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intwyne — Where intention meets connection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font: Noto Serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #f0ecdf;
-      --green: #839f71;
-      --brown: #8e663c;
+      --bg: #EFECE0;
+      --green: #839F71;
+      --brown: #8E663C;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
       padding: 0;
-      font-family: "Noto Serif", serif;
-      text-align: center;
+      font-family: "Noto Serif", Georgia, "Times New Roman", serif;
       background-color: var(--bg);
       color: var(--brown);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
+    .wrapper {
+      text-align: center;
+      max-width: 560px;
+      padding: 20px 24px 40px;
+      margin-top: 4px;
     }
 
     .logo {
-      width: 100%;
-      max-width: 380px;
-      margin: 0 auto 10px;
+      width: 70%;
+      max-width: 300px;
+      height: auto;
       display: block;
+      margin: 0 auto 6px; /* small gap under logo */
     }
 
-    .coming-soon {
-      font-size: 20px; 
-      margin-top: 10px;
-      margin-bottom: 22px;
-      font-weight: bold;
+    .coming {
+      font-size: 16px;
+      font-weight: 600;
       color: var(--brown);
+      margin-top: 6px;
+      margin-bottom: 10px;
     }
 
-    .coming-soon .leaf {
+    .lead {
+      font-size: 16px;   /* slightly smaller */
+      line-height: 1.55;
+      margin-top: 2px;
+      margin-bottom: 8px;
       color: var(--green);
-      font-size: 20px;
-      margin-left: 6px;
     }
 
-    .headline {
+    .body-text {
+      font-size: 15px;   /* slightly smaller */
+      line-height: 1.6;
+      margin-bottom: 16px;
       color: var(--green);
-      font-size: 18px;
-      margin: 0 0 16px;
-      line-height: 1.5;
     }
 
-    .subheadline {
-      color: var(--green);
-      font-size: 17px;
-      margin: 0 0 20px;
-      line-height: 1.5;
+    .sub {
+      font-size: 14px;
+      color: #7a6755;
+      margin-bottom: 20px;
     }
 
-    /* ⭐ Only change: add balanced spacing before the email field */
-    .email-section {
-      margin-top: 26px;  /* adjust to 20 or 30 if needed */
+    form {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap; /* allows wrapping but keeps them compact */
     }
 
     input[type="email"] {
-      width: 80%;
-      max-width: 320px;
-      padding: 14px 18px;
-      border: 2px solid var(--brown);
-      border-radius: 30px;
-      font-size: 16px;
-      text-align: center;
+      min-width: 240px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--brown);
+      background-color: transparent;
+      font-size: 14px;
+      color: var(--brown);
       outline: none;
-      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    input[type="email"]::placeholder {
+      color: #a48b76;
     }
 
     button {
+      border-radius: 999px;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
       background-color: var(--green);
       color: #fff;
-      border: none;
-      padding: 14px 32px;
-      border-radius: 30px;
-      font-size: 17px;
       cursor: pointer;
+      min-width: 130px;
     }
 
-    .email {
-      margin-top: 26px;
-      font-size: 15px;
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 12px;
+      color: #8a7a6a;
+    }
+
+    .success-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--green);
+      display: none;
+    }
+
+    .error-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #b1563b;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .wrapper {
+        padding: 18px 16px 32px;
+      }
+      /* keep input + button compact on mobile */
+      input[type="email"], button {
+        width: auto;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
+  <div class="wrapper">
 
-    <img src="logo-intwyne_20251117_134318_0000.png" alt="Intwyne Logo" class="logo" />
+    <!-- Logo -->
+    <img src="logo-intwyne_20251117_134318_0000.png" alt="Intwyne" class="logo" />
 
-    <div class="coming-soon">
-      Something new is coming soon. <span class="leaf">🌿</span>
-    </div>
+    <!-- Coming soon directly under the logo -->
+    <p class="coming">
+      Something new is coming soon. 🌿
+    </p>
 
-    <p class="headline">
+    <!-- What Intwyne is -->
+    <p class="lead">
       Intwyne is an intentional dating app for people who are ready for something real.
     </p>
 
-    <p class="subheadline">
+    <p class="body-text">
       A calmer, more meaningful way to meet — with honest profiles, shared values, and genuine connection.
     </p>
 
-    <!-- ⭐ NEW WRAPPER FOR SPACING -->
-    <div class="email-section">
-      <form action="https://formspree.io/f/xdkyvgqj" method="POST">
-        <input type="email" name="email" placeholder="Enter your email address" required />
-        <br />
-        <button type="submit">Join the waitlist</button>
-      </form>
+    <!-- Waitlist intro -->
+    <p class="sub">
+      Join the waitlist to be the first to know.
+    </p>
+
+    <!-- Waitlist form -->
+    <form id="waitlist-form" action="https://formspree.io/f/xdkyvgqj" method="POST">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email address"
+        required
+      />
+      <button type="submit">Join the waitlist</button>
+    </form>
+
+    <!-- Messages -->
+    <p id="success-message" class="success-message">
+      Thank you — you're on the waitlist. 🌿
+    </p>
+
+    <p id="error-message" class="error-message">
+      Something went wrong. Please try again in a moment.
+    </p>
+
+    <div class="footer">
+      hello@intwyne.co.uk
     </div>
 
-    <p class="email">hello@intwyne.co.uk</p>
-
   </div>
+
+  <script>
+    const form = document.getElementById("waitlist-form");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          successMessage.style.display = "block";
+          form.reset();
+        } else {
+          errorMessage.style.display = "block";
+        }
+      } catch (err) {
+        errorMessage.style.display = "block";
+      }
+    });
+  </script>
+
 </body>
 </html>
