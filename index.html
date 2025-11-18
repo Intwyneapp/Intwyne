@@ -29,12 +29,12 @@
     .logo {
       width: 100%;
       max-width: 380px;
-      margin: 0 auto 10px; 
+      margin: 0 auto 10px;
       display: block;
     }
 
     .coming-soon {
-      font-size: 20px;
+      font-size: 20px; 
       margin-top: 10px;
       margin-bottom: 22px;
       font-weight: bold;
@@ -51,18 +51,19 @@
       color: var(--green);
       font-size: 18px;
       margin: 0 0 16px;
+      line-height: 1.5;
     }
 
     .subheadline {
       color: var(--green);
       font-size: 17px;
-      margin: 0 0 26px;
+      margin: 0 0 20px;
       line-height: 1.5;
     }
 
-    /* ⭐ NEW SPACING ADDED HERE */
-    form {
-      margin-top: 26px; /* adjust to 18px or 32px if you want more/less */
+    /* ⭐ Only change: add balanced spacing before the email field */
+    .email-section {
+      margin-top: 26px;  /* adjust to 20 or 30 if needed */
     }
 
     input[type="email"] {
@@ -72,7 +73,7 @@
       border: 2px solid var(--brown);
       border-radius: 30px;
       font-size: 16px;
-      text-align: center; 
+      text-align: center;
       outline: none;
       margin-bottom: 18px;
     }
@@ -110,11 +111,14 @@
       A calmer, more meaningful way to meet — with honest profiles, shared values, and genuine connection.
     </p>
 
-    <form action="https://formspree.io/f/xdkyvgqj" method="POST">
-      <input type="email" name="email" placeholder="Enter your email address" required />
-      <br />
-      <button type="submit">Join the waitlist</button>
-    </form>
+    <!-- ⭐ NEW WRAPPER FOR SPACING -->
+    <div class="email-section">
+      <form action="https://formspree.io/f/xdkyvgqj" method="POST">
+        <input type="email" name="email" placeholder="Enter your email address" required />
+        <br />
+        <button type="submit">Join the waitlist</button>
+      </form>
+    </div>
 
     <p class="email">hello@intwyne.co.uk</p>
 
